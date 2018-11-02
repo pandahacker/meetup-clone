@@ -6,32 +6,32 @@ import { Context } from "../store/appContext.jsx";
 export class Meetup extends React.Component {
 	render() {
 		return (
-			<div className="jumbotron">
-				<Context.Consumer>
-					{({ store }) => {
-						return (
+			<Context.Consumer>
+				{({ store }) => {
+					return (
+						<div className="jumbotron">
 							<h1 className="display-4">
 								This will show the demo element:{" "}
 								{
-									store.events[this.props.match.params.ID]
+									store.events[this.props.match.params.theid]
 										.post_title
 								}
 							</h1>
-						);
-					}}
-				</Context.Consumer>
 
-				<hr className="my-4" />
+							<hr className="my-4" />
 
-				<Link to="/">
-					<span
-						className="btn btn-primary btn-lg"
-						href="#"
-						role="button">
-						Back home
-					</span>
-				</Link>
-			</div>
+							<Link to="/">
+								<span
+									className="btn btn-primary btn-lg"
+									href="#"
+									role="button">
+									Back home
+								</span>
+							</Link>
+						</div>
+					);
+				}}
+			</Context.Consumer>
 		);
 	}
 }

@@ -23,24 +23,23 @@ export class Meetups extends React.Component {
 							return store.events.map((item, index) => {
 								return (
 									<div key={index} className="container">
-										<li className="list-group-item d-flex justify-content-between">
-											<Link to={"/Meetup/" + item.ID}>
-												<span>
-													Link to: {item.post_title}
-												</span>
-											</Link>
-											<p>{item.post_content}</p>
-											<button
-												className="btn btn-success"
-												onClick={() =>
-													actions.changeColor(
-														index,
-														"orange"
-													)
-												}>
-												Register
-											</button>
-										</li>
+										<div className="card m-3">
+											<div className="card-header">
+												<Link to={"/meetup/" + item.ID}>
+													<span>
+														{item.post_title}
+													</span>
+												</Link>
+											</div>
+											<div className="card-body">
+												<p className="card-text">
+													{item.post_content}
+												</p>
+												<button className="btn btn-primary">
+													Register
+												</button>
+											</div>
+										</div>
 									</div>
 								);
 							});

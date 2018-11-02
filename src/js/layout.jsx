@@ -23,7 +23,6 @@ export class Layout extends React.Component {
 						<Route path="/meetup/:theid" component={Meetup} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		);

@@ -7,7 +7,7 @@ function DemoList(props) {
 		<ul>
 			<Context.Consumer>
 				{({ store }) => {
-					return store.meetups.map((item, index) => {
+					return store.events.map((item, index) => {
 						return <li key={index}>{item.post_title}</li>;
 					});
 				}}
