@@ -13,7 +13,7 @@ export class Meetup extends React.Component {
 							<h1 className="display-4">
 								This will show the demo element:{" "}
 								{
-									store.meetups[this.props.match.params.ID]
+									store.events[this.props.match.params.ID]
 										.post_title
 								}
 							</h1>

@@ -16,11 +16,11 @@ export class Demo extends React.Component {
 								return (
 									<li
 										key={index}
-										className="list-group-item d-flex justify-content-between"
-										style="background: black">
+										className="list-group-item d-flex justify-content-between">
 										<Link to={"/Meetup/" + index}>
 											<span>
-												Link to: {item.post_title}
+												Link to: {item.post_title}{" "}
+												{item.ID}
 											</span>
 										</Link>
 										<p>{item.post_content}</p>

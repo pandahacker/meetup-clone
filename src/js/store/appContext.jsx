@@ -12,8 +12,34 @@ const Store = PassedComponent => {
 
 		componentDidMount() {
 			fetch("https://assets.breatheco.de/apis/fake/meetup/meetups")
-				.then(response => response.json())
-				.then(data => this.setState({ meetups: data }));
+				.then(response => {
+					response.json().then(data => {
+						let store = this.state.store;
+						store.meetups = data;
+						this.setState({ store });
+					});
+				})
+				.catch(error => console.log("Fetch Error:", error));
+
+			fetch("https://assets.breatheco.de/apis/fake/meetup/session")
+				.then(response => {
+					response.json().then(data => {
+						let store = this.state.store;
+						store.session = data;
+						this.setState({ store });
+					});
+				})
+				.catch(error => console.log("Fetch Error:", error));
+
+			fetch("https://assets.breatheco.de/apis/fake/meetup/events")
+				.then(response => {
+					response.json().then(data => {
+						let store = this.state.store;
+						store.events = data;
+						this.setState({ store });
+					});
+				})
+				.catch(error => console.log("Fetch Error:", error));
 
 			// var xhr = new XMLHttpRequest();
 			//

@@ -14,7 +14,7 @@ function DemoProducts(props) {
 									return (
 										<li
 											key={index}
-											className="list-group-item"
+											className="list-group-item">
 											{item.post_title}
 										</li>
 									);
