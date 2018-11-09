@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 import "../../styles/home.css";
+import moment from "moment";
 
 export class Meetups extends React.Component {
 	render() {
@@ -25,19 +26,52 @@ export class Meetups extends React.Component {
 									<div key={index} className="container">
 										<div className="card m-3">
 											<div className="card-header">
-												<Link to={"/meetup/" + item.ID}>
-													<span>
-														{item.post_title}
-													</span>
-												</Link>
+												<h3>
+													{moment(
+														item.meta_keys.day
+													).format("LL")}
+												</h3>
 											</div>
 											<div className="card-body">
-												<p className="card-text">
-													{item.post_content}
-												</p>
-												<button className="btn btn-primary">
-													Register
-												</button>
+												<div className="container">
+													<div className="row">
+														<h4 className="col-4 card-text">
+															{moment(
+																item.meta_keys
+																	.time,
+																"HH:mm:ss"
+															).format("LT")}
+														</h4>
+														<div className="col-8 card-text text-center">
+															<Link
+																to={
+																	"/event/" +
+																	item.ID
+																}>
+																<h4>
+																	{
+																		item.post_title
+																	}
+																</h4>
+															</Link>
+															<Link
+																to={
+																	"/meetup/" +
+																	item
+																		.meta_keys
+																		._meetup
+																}>
+																<h4>
+																	{actions.findMeetupName(
+																		item
+																			.meta_keys
+																			._meetup
+																	)}
+																</h4>
+															</Link>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
